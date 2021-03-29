@@ -16,7 +16,7 @@ def parse_args():
     
     parser.add_argument(
         '--base-segmentation-dir', metavar='DIRECTORY', required=True,
-        help='directory with input images'
+        help='directory with input masks'
     )
 
     return parser.parse_args()
@@ -34,34 +34,36 @@ def main():
 
     print(args)
 
-    dir_create('./train_images')
-    dir_create('./train_segmentation')
-    dir_create('./val_images')
-    dir_create('./val_segmentation')
+    dir_create('../Images/Train_test_split/3_dias/Normais/train_imgs')
+    dir_create('../Images/Train_test_split/3_dias/Normais/train_masks')
+    dir_create('../Images/Train_test_split/3_dias/Normais/val_imgs')
+    dir_create('../Images/Train_test_split/3_dias/Normais/val_masks')
 
     image_names = [f for f in os.listdir(args.base_image_dir) if f.endswith(".png")]
-
+    
+    print(image_names)
+    
     X, Y = train_test_split(image_names, test_size=0.3)
 
-    train_paths = []
-    train_seg_paths = []
+    train_imgs_paths = []
+    train_masks_paths = []
     for image_name in X:
-        train_paths.append(os.path.join(args.base_image_dir, image_name))
-        train_seg_paths.append(os.path.join(args.base_segmentation_dir, image_name))
+        train_imgs_paths.append(os.path.join(args.base_image_dir, image_name))
+        train_masks_paths.append(os.path.join(args.base_segmentation_dir, image_name))
 
-    test_paths = []
-    test_seg_paths = []
+    val_img_paths = []
+    val_masks_paths = []
     for image_name in Y:
-        test_paths.append(os.path.join(args.base_image_dir, image_name))
-        test_seg_paths.append(os.path.join(args.base_segmentation_dir, image_name))
+        val_img_paths.append(os.path.join(args.base_image_dir, image_name))
+        val_masks_paths.append(os.path.join(args.base_segmentation_dir, image_name))
 
-    for train_path, train_seg_path in zip(train_paths,train_seg_paths):
-        shutil.copy(train_path, 'train_images')
-        shutil.copy(train_seg_path, 'train_segmentation')
+    for train_img_path, train_mask_path in zip(train_imgs_paths,train_masks_paths):
+        shutil.copy(train_img_path, '../Images/Train_test_split/3_dias/Normais/train_imgs')
+        shutil.copy(train_mask_path, '../Images/Train_test_split/3_dias/Normais/train_masks')
 
-    for test_path, test_seg_path in zip(test_paths,test_seg_paths):
-        shutil.copy(test_path, 'val_images')
-        shutil.copy(test_seg_path, 'val_segmentation')
+    for val_img_path, val_mask_path in zip(val_img_paths,val_masks_paths):
+        shutil.copy(val_img_path, '../Images/Train_test_split/3_dias/Normais/val_imgs')
+        shutil.copy(val_mask_path, '../Images/Train_test_split/3_dias/Normais/val_masks')
 
 if __name__ == "__main__":
     main()
