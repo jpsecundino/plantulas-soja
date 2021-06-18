@@ -2,3 +2,14 @@
 *.zip	filter=lfs diff=lfs merge=lfs -text
 scripts/ filter=lfs diff=lfs merge=lfs -text
 scripts/Visualizing[[:space:]]Dataset.ipynb filter=lfs diff=lfs merge=lfs -text
+scripts/metricas/classificacao/3_d/pre_trained_weighted/ filter=lfs diff=lfs merge=lfs -text
+scripts/metricas/classificacao/3_d/pre_trained_weighted/false_positives.png filter=lfs diff=lfs merge=lfs -text
+scripts/metricas/classificacao/3_d/pre_trained_weighted/model filter=lfs diff=lfs merge=lfs -text
+scripts/metricas/classificacao/3_d/pre_trained_weighted/true_negatives.png filter=lfs diff=lfs merge=lfs -text
+scripts/metricas/classificacao/3_d/pre_trained_weighted/true_positives.png filter=lfs diff=lfs merge=lfs -text
+scripts/metricas/classificacao/3_d/pre_trained_weighted/acc.png filter=lfs diff=lfs merge=lfs -text
+scripts/metricas/classificacao/3_d/pre_trained_weighted/auc.png filter=lfs diff=lfs merge=lfs -text
+scripts/metricas/classificacao/3_d/pre_trained_weighted/precision.png filter=lfs diff=lfs merge=lfs -text
+scripts/metricas/classificacao/3_d/pre_trained_weighted/recall.png filter=lfs diff=lfs merge=lfs -text
+scripts/metricas/classificacao/3_d/pre_trained_weighted/false_negatives.png filter=lfs diff=lfs merge=lfs -text
+scripts/metricas/classificacao/3_d/pre_trained_weighted/loss.png filter=lfs diff=lfs merge=lfs -text
